@@ -1,0 +1,36 @@
+.Nav {
+  width: 100%;
+  background-color: rgb(76, 149, 218);
+  height: 3rem;
+}
+
+#site-logo {
+  display: inline-block;
+  font-size: 2rem;
+  text-align: left;
+  margin-left: 1rem;
+}
+
+.Nav > ul {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.Nav > ul > li {
+  display: inline-block;
+  margin: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+a:focus,
+a:hover {
+  font-weight: bold;
+}
+
+a:active {
+  color: rgb(126, 182, 233);
+}
