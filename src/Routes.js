@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch, Redirect, useParams } from "react-router-dom";
 import CompanyDetail from "./CompanyDetail";
+import CompanyList from "./CompanyList";
 
 const Routes = () => {
   return (
@@ -9,7 +10,7 @@ const Routes = () => {
         <h1>Home</h1>
       </Route>
       <Route exact path="/companies">
-        <h1>Companies</h1>
+        <CompanyList />
       </Route>
       <Route exact path="/companies/:handle">
         <CompanyDetail />
