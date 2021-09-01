@@ -21,7 +21,7 @@ function JobDetail() {
       <h2>{job.title}</h2>
       <p>Salary: {job.salary}</p>
       {job.equity && <p>Equity: {job.equity}</p>}
-      <Link to={`/${job.company.handle}`}>
+      <Link to={`/companies/${job.company.handle}`}>
         <p>{job.company.name}</p>
       </Link>
       <p>{job.company.description}</p>

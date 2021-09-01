@@ -1,6 +1,7 @@
 import JoblyApi from "./api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import JobCard from "./JobCard";
 
 function CompanyDetail() {
   let { handle } = useParams();
@@ -19,11 +20,7 @@ function CompanyDetail() {
 
   if (company.jobs.length > 0) {
     jobs = company.jobs.map((job) => {
-      return (
-        <div className="job-card">
-          <h3>{job.title}</h3>
-        </div>
-      );
+      return <JobCard job={job} key={job.id} />;
     });
   }
 
