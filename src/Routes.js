@@ -2,6 +2,8 @@ import React from "react";
 import { Route, Switch, Redirect, useParams } from "react-router-dom";
 import CompanyDetail from "./CompanyDetail";
 import CompanyList from "./CompanyList";
+import JobDetail from "./JobDetail";
+import JobList from "./JobList";
 
 const Routes = () => {
   return (
@@ -16,10 +18,10 @@ const Routes = () => {
         <CompanyDetail />
       </Route>
       <Route exact path="/jobs">
-        <h1>Jobs</h1>
+        <JobList />
       </Route>
       <Route exact path="/jobs/:id">
-        <h1>Job Detail</h1>
+        <JobDetail />
       </Route>
       <Route exact path="/login">
         <h1>Login</h1>
