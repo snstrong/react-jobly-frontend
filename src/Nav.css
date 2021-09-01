@@ -21,16 +21,17 @@
   margin: 10px;
 }
 
-a {
+.Nav > ul > li > a {
   text-decoration: none;
-  color: aliceblue;
-}
-
-a:focus,
-a:hover {
+  color: #d7ecff;
   font-weight: bold;
 }
 
-a:active {
+.Nav > ul > li > a:focus,
+.Nav > ul > li > a:hover {
+  color: aliceblue;
+}
+
+.Nav > ul > li > a:active {
   color: rgb(126, 182, 233);
 }
