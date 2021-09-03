@@ -56,8 +56,11 @@ class JoblyApi {
   // Job Routes
 
   /** Get details on all jobs. */
-  static async getAllJobs() {
-    let res = await this.request(`jobs`);
+  static async getJobs({ searchTerm }) {
+    let endpoint = "jobs";
+    if (searchTerm.length) endpoint += `?title=${searchTerm}`;
+
+    let res = await this.request(endpoint);
     return res.jobs;
   }
 
