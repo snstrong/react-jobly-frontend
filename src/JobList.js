@@ -4,15 +4,15 @@ import JobCard from "./JobCard";
 
 function JobList() {
   let [jobs, setJobs] = useState(null);
+  let [search, setSearch] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       let res = await JoblyApi.getAllJobs();
       setJobs(res);
-      console.log(res[0]);
     }
     fetchData();
-  }, [setJobs]);
+  }, []);
 
   if (!jobs) return <p>Loading...</p>;
 

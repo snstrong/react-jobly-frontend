@@ -6,7 +6,7 @@ function JobCard(job, key) {
       <Link to={`/jobs/${job.job.id}`}>
         <h3>{job.job.title}</h3>
       </Link>
-      <Link to={`/company/${job.job.companyHandle}`}>
+      <Link to={`/companies/${job.job.companyHandle}`}>
         {job.job.companyName}
       </Link>
       <p>Salary: {job.job.salary}</p>

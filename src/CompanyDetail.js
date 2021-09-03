@@ -12,7 +12,7 @@ function CompanyDetail() {
       setCompany(res);
     }
     fetchData();
-  }, [setCompany]);
+  }, [handle]);
 
   if (!company) return null;
 

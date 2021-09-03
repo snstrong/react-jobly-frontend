@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-function SearchForm() {
-  let [formData, setFormData] = useState(null);
+function SearchForm({ search }) {
+  const INITIAL_STATE = { searchTerm: "" };
+  let [formData, setFormData] = useState(INITIAL_STATE);
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
@@ -12,6 +13,8 @@ function SearchForm() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    search(formData);
+    setFormData(INITIAL_STATE);
   };
 
   return (

@@ -39,8 +39,10 @@ class JoblyApi {
   // Company Routes
 
   /** Get details on all companies. */
-  static async getAllCompanies() {
-    let res = await this.request(`companies`);
+  static async getCompanies({ searchTerm }) {
+    let endpoint = "companies";
+    if (searchTerm.length) endpoint += `?name=${searchTerm}`;
+    let res = await this.request((endpoint = endpoint));
     return res.companies;
   }
 
