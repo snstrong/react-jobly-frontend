@@ -33,10 +33,20 @@ class JoblyApi {
   }
 
   //////////////////////////////
-  /** Individual API routes   */
+  /** Individual API requests */
   //////////////////////////////
 
-  // Company Routes
+  // Auth Requests
+
+  /** Register a user. Returns JWT. */
+
+  static async register(data) {
+    let res = await this.request(`auth/register`, data, "post");
+    JoblyApi.token = res.token;
+    return res.token;
+  }
+
+  // Company Requests
 
   /** Get details on all companies. */
   static async getCompanies({ searchTerm }) {
@@ -49,11 +59,10 @@ class JoblyApi {
   /** Get details on one company by handle. */
   static async getCompany(handle) {
     let res = await this.request(`companies/${handle}`);
-    console.log(res);
     return res.company;
   }
 
-  // Job Routes
+  // Job Requests
 
   /** Get details on all jobs. */
   static async getJobs({ searchTerm }) {

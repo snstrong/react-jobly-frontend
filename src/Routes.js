@@ -4,6 +4,7 @@ import CompanyDetail from "./CompanyDetail";
 import CompanyList from "./CompanyList";
 import JobDetail from "./JobDetail";
 import JobList from "./JobList";
+import RegisterForm from "./RegisterForm";
 
 const Routes = () => {
   return (
@@ -27,7 +28,7 @@ const Routes = () => {
         <h1>Login</h1>
       </Route>
       <Route exact path="/signup">
-        <h1>Sign Up</h1>
+        <RegisterForm />
       </Route>
       <Route exact path="/profile">
         <h1>Profile</h1>
