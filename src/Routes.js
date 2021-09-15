@@ -5,6 +5,7 @@ import CompanyList from "./CompanyList";
 import JobDetail from "./JobDetail";
 import JobList from "./JobList";
 import RegisterForm from "./RegisterForm";
+import LoginForm from "./LoginForm";
 
 const Routes = () => {
   return (
@@ -25,7 +26,7 @@ const Routes = () => {
         <JobDetail />
       </Route>
       <Route exact path="/login">
-        <h1>Login</h1>
+        <LoginForm />
       </Route>
       <Route exact path="/signup">
         <RegisterForm />

@@ -46,6 +46,14 @@ class JoblyApi {
     return res.token;
   }
 
+  /** Logs in a user. Returns JWT. */
+
+  static async login(data) {
+    let res = await this.request(`auth/token`, data, "post");
+    JoblyApi.token = res.token;
+    return res.token;
+  }
+
   // Company Requests
 
   /** Get details on all companies. */
