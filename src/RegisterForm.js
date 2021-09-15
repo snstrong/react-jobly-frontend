@@ -1,12 +1,14 @@
-/** Required data:
+/** Form component for registering a user. 
+ * 
+ * Required form inputs:
  * {
-	"username": "snstrong",
-	"password": "abracadabra678",
-	"firstName": "Sara",
-	"lastName": "Strong",
-	"email": "sara.n.strong@gmail.com"
+	"username": "this_is_user",
+	"password": "password",
+	"firstName": "First",
+	"lastName": "Last",
+	"email": "emailme@gmail.com"
 }
- */
+*/
 
 import { useState } from "react";
 import JoblyApi from "./api";
@@ -31,7 +33,7 @@ function RegisterForm() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    let res = JoblyApi.register(formData);
+    let res = JoblyApi.register(formData); // TODO: register method in App component, to be passed down as prop
     setFormData(INITIAL_STATE);
   };
 
