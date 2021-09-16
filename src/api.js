@@ -54,6 +54,14 @@ class JoblyApi {
     return res.token;
   }
 
+  // User Requests
+
+  // TODO: add auth header w/ token
+  static async getCurrentUser(username) {
+    let res = await this.request(`users/${username}`);
+    return res.user;
+  }
+
   // Company Requests
 
   /** Get details on all companies. */

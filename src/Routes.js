@@ -7,7 +7,7 @@ import JobList from "./JobList";
 import RegisterForm from "./RegisterForm";
 import LoginForm from "./LoginForm";
 
-const Routes = () => {
+const Routes = ({ login, register }) => {
   return (
     <Switch>
       <Route exact path="/">
@@ -26,10 +26,10 @@ const Routes = () => {
         <JobDetail />
       </Route>
       <Route exact path="/login">
-        <LoginForm />
+        <LoginForm login={login} />
       </Route>
       <Route exact path="/signup">
-        <RegisterForm />
+        <RegisterForm register={register} />
       </Route>
       <Route exact path="/profile">
         <h1>Profile</h1>

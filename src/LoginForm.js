@@ -10,7 +10,7 @@
 import { useState } from "react";
 import JoblyApi from "./api";
 
-function LoginForm() {
+function LoginForm({ login }) {
   const INITIAL_STATE = {
     username: "",
     password: "",
@@ -29,7 +29,8 @@ function LoginForm() {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     // TODO: login method in App component to be passed down as prop
-    let res = JoblyApi.login(formData);
+    // let res = JoblyApi.login(formData);
+    login(formData);
     setFormData(INITIAL_STATE);
   };
 

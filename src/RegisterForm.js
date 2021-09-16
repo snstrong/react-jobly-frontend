@@ -13,7 +13,7 @@
 import { useState } from "react";
 import JoblyApi from "./api";
 
-function RegisterForm() {
+function RegisterForm({ register }) {
   const INITIAL_STATE = {
     username: "",
     password: "",
@@ -33,7 +33,8 @@ function RegisterForm() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    let res = JoblyApi.register(formData); // TODO: register method in App component, to be passed down as prop
+    // let res = JoblyApi.register(formData); // TODO: register method in App component, to be passed down as prop
+    register(formData);
     setFormData(INITIAL_STATE);
   };
 
