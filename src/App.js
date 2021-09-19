@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import jwt from "jsonwebtoken";
 
+import UserContext from "./UserContext";
 import Routes from "./Routes";
 import "./App.css";
 import JoblyApi from "./api";
@@ -13,15 +14,15 @@ function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
   const [applicationIds, setApplicationIds] = useState(new Set([]));
 
-  console.debug(
-    "App",
-    "infoLoaded=",
-    infoLoaded,
-    "currentUser=",
-    currentUser,
-    "token=",
-    token
-  );
+  // console.debug(
+  //   "App",
+  //   "infoLoaded=",
+  //   infoLoaded,
+  //   "currentUser=",
+  //   currentUser,
+  //   "token=",
+  //   token
+  // );
 
   // Load user info from API. Until a user is logged in and they have a token,
   // this should not run. It only needs to re-run when a user logs out, so
@@ -70,7 +71,6 @@ function App() {
     try {
       let token = await JoblyApi.login(loginData);
       setToken(token);
-      debugger;
       return { success: true };
     } catch (errors) {
       console.error("login failed", errors);
@@ -80,16 +80,29 @@ function App() {
     // return;
   }
 
-  async function register(data) {
-    JoblyApi.register(data).then((token) => console.log(token));
-    return;
+  async function register(signupData) {
+    // JoblyApi.register(data).then((token) => console.log(token));
+    // return;
+
+    try {
+      let token = await JoblyApi.register(signupData);
+      setToken(token);
+      return { success: true };
+    } catch (errors) {
+      console.error("registration failed", errors);
+      return { success: false, errors };
+    }
   }
+
+  if (!infoLoaded) return <div>Loading...</div>;
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Nav />
-        <Routes login={login} register={register} />
+        <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+          <Nav logout={logout} />
+          <Routes login={login} register={register} />
+        </UserContext.Provider>
       </BrowserRouter>
     </div>
   );
