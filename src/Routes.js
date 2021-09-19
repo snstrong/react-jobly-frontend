@@ -6,12 +6,13 @@ import JobDetail from "./JobDetail";
 import JobList from "./JobList";
 import RegisterForm from "./RegisterForm";
 import LoginForm from "./LoginForm";
+import Home from "./Home";
 
 const Routes = ({ login, register }) => {
   return (
     <Switch>
       <Route exact path="/">
-        <h1>Home</h1>
+        <Home />
       </Route>
       <Route exact path="/companies">
         <CompanyList />
