@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch, Redirect, useParams } from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute";
 import CompanyDetail from "./CompanyDetail";
 import CompanyList from "./CompanyList";
 import JobDetail from "./JobDetail";
@@ -14,27 +15,27 @@ const Routes = ({ login, register }) => {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route exact path="/companies">
+      <ProtectedRoute exact path="/companies">
         <CompanyList />
-      </Route>
-      <Route exact path="/companies/:handle">
+      </ProtectedRoute>
+      <ProtectedRoute exact path="/companies/:handle">
         <CompanyDetail />
-      </Route>
-      <Route exact path="/jobs">
+      </ProtectedRoute>
+      <ProtectedRoute exact path="/jobs">
         <JobList />
-      </Route>
-      <Route exact path="/jobs/:id">
+      </ProtectedRoute>
+      <ProtectedRoute exact path="/jobs/:id">
         <JobDetail />
-      </Route>
+      </ProtectedRoute>
       <Route exact path="/login">
         <LoginForm login={login} />
       </Route>
       <Route exact path="/signup">
         <RegisterForm register={register} />
       </Route>
-      <Route exact path="/profile">
+      <ProtectedRoute exact path="/profile">
         <h1>Profile</h1>
-      </Route>
+      </ProtectedRoute>
     </Switch>
   );
 };

@@ -8,9 +8,12 @@
 */
 
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import JoblyApi from "./api";
 
 function LoginForm({ login }) {
+  const history = useHistory();
+
   const INITIAL_STATE = {
     username: "",
     password: "",
@@ -26,13 +29,13 @@ function LoginForm({ login }) {
     }));
   };
 
-  const handleSubmit = (evt) => {
+  async function handleSubmit(evt) {
     evt.preventDefault();
     // TODO: login method in App component to be passed down as prop
     // let res = JoblyApi.login(formData);
-    login(formData);
-    setFormData(INITIAL_STATE);
-  };
+    let res = await login(formData);
+    res.success ? history.push("/companies") : console.error(res.errors);
+  }
 
   return (
     <div className="LoginForm container">
@@ -48,6 +51,7 @@ function LoginForm({ login }) {
             name="username"
             value={formData.username}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="mb-3">
@@ -61,6 +65,7 @@ function LoginForm({ login }) {
             name="password"
             value={formData.password}
             onChange={handleChange}
+            required
           />
         </div>
         <button className="btn btn-primary">Submit</button>
