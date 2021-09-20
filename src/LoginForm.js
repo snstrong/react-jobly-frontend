@@ -31,8 +31,6 @@ function LoginForm({ login }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    // TODO: login method in App component to be passed down as prop
-    // let res = JoblyApi.login(formData);
     let res = await login(formData);
     res.success ? history.push("/companies") : console.error(res.errors);
   }
@@ -46,6 +44,7 @@ function LoginForm({ login }) {
             Username
           </label>
           <input
+            autoComplete="username"
             className="form-control"
             id="username"
             name="username"
@@ -59,6 +58,7 @@ function LoginForm({ login }) {
             Password
           </label>
           <input
+            autoComplete="current-password"
             className="form-control"
             type="password"
             id="password"

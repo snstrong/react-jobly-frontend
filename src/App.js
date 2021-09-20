@@ -97,6 +97,17 @@ function App() {
     }
   }
 
+  async function updateUser(username, userData) {
+    try {
+      let user = await JoblyApi.updateCurrentUser(username, userData);
+      setCurrentUser(user);
+      return { success: true };
+    } catch (errors) {
+      console.error("User update failed", errors);
+      return { success: false, errors };
+    }
+  }
+
   if (!infoLoaded) return <div>Loading...</div>;
 
   return (
@@ -104,7 +115,7 @@ function App() {
       <BrowserRouter>
         <UserContext.Provider value={{ currentUser, setCurrentUser }}>
           <Nav logout={logout} />
-          <Routes login={login} register={register} />
+          <Routes login={login} register={register} updateUser={updateUser} />
         </UserContext.Provider>
       </BrowserRouter>
     </div>

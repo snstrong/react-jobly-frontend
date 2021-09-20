@@ -56,9 +56,19 @@ class JoblyApi {
 
   // User Requests
 
-  // TODO: add auth header w/ token
   static async getCurrentUser(username) {
     let res = await this.request(`users/${username}`);
+    return res.user;
+  }
+
+  static async updateCurrentUser(username, data) {
+    let patchData = {};
+    for (let field in data) {
+      if (data[field].length > 0) {
+        patchData[field] = data[field];
+      }
+    }
+    let res = await this.request(`users/${username}`, patchData, "patch");
     return res.user;
   }
 

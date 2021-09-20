@@ -7,9 +7,10 @@ import JobDetail from "./JobDetail";
 import JobList from "./JobList";
 import RegisterForm from "./RegisterForm";
 import LoginForm from "./LoginForm";
+import ProfileForm from "./ProfileForm";
 import Home from "./Home";
 
-const Routes = ({ login, register }) => {
+const Routes = ({ login, register, updateUser }) => {
   return (
     <Switch>
       <Route exact path="/">
@@ -34,7 +35,7 @@ const Routes = ({ login, register }) => {
         <RegisterForm register={register} />
       </Route>
       <ProtectedRoute exact path="/profile">
-        <h1>Profile</h1>
+        <ProfileForm updateUser={updateUser} />
       </ProtectedRoute>
     </Switch>
   );

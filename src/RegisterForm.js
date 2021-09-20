@@ -47,6 +47,7 @@ function RegisterForm({ register }) {
             Username
           </label>
           <input
+            autoComplete="username"
             className="form-control"
             id="username"
             name="username"
@@ -60,6 +61,7 @@ function RegisterForm({ register }) {
             Password
           </label>
           <input
+            autoComplete="new-password"
             type="password"
             id="password"
             name="password"
