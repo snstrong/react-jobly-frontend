@@ -1,6 +1,7 @@
 import JoblyApi from "./api";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import ApplyButton from "./ApplyButton";
 
 function JobDetail() {
   let { id } = useParams();
@@ -19,6 +20,7 @@ function JobDetail() {
   return (
     <div className="JobDetail">
       <h2>{job.title}</h2>
+      <ApplyButton jobId={job.id} />
       <p>Salary: {job.salary}</p>
       {job.equity && <p>Equity: {job.equity}</p>}
       <Link to={`/companies/${job.company.handle}`}>

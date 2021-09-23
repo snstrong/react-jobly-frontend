@@ -39,12 +39,11 @@ function App() {
         if (token) {
           try {
             let { username } = jwt.decode(token);
-            console.log("Username is: " + username);
             // put the token on the Api class so it can use it to call the API.
             JoblyApi.token = token;
             let currentUser = await JoblyApi.getCurrentUser(username);
             setCurrentUser(currentUser);
-            // setApplicationIds(new Set(currentUser.applications));
+            setApplicationIds(new Set(currentUser.applications));
           } catch (err) {
             console.error("App loadUserInfo: problem loading", err);
             setCurrentUser(null);
@@ -108,12 +107,32 @@ function App() {
     }
   }
 
+  /** Checks if a job has been applied for. */
+  function hasAppliedToJob(id) {
+    return applicationIds.has(id);
+  }
+
+  /** Apply to job. */
+  async function apply(jobId) {
+    if (hasAppliedToJob(jobId)) return;
+    try {
+      await JoblyApi.applyToJob(currentUser.username, jobId);
+      setApplicationIds(new Set([...applicationIds, jobId]));
+      return { success: true };
+    } catch (errors) {
+      console.error("Job application failed", errors);
+      return { success: false, errors };
+    }
+  }
+
   if (!infoLoaded) return <div>Loading...</div>;
 
   return (
     <div className="App">
       <BrowserRouter>
-        <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+        <UserContext.Provider
+          value={{ currentUser, setCurrentUser, apply, hasAppliedToJob }}
+        >
           <Nav logout={logout} />
           <Routes login={login} register={register} updateUser={updateUser} />
         </UserContext.Provider>

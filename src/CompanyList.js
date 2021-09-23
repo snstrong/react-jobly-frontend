@@ -28,7 +28,7 @@ function CompanyList() {
   ));
 
   return (
-    <div className="CompanyList">
+    <div className="CompanyList container">
       <h2>Companies</h2>
       <SearchForm search={search} />
       {companyCards}
