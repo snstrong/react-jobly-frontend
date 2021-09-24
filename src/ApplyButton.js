@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import UserContext from "./UserContext";
 
 function ApplyButton({ jobId }) {
-  const { currentUser, apply, hasAppliedToJob } = useContext(UserContext);
+  const { apply, hasAppliedToJob } = useContext(UserContext);
   const [applied, setApplied] = useState(hasAppliedToJob(jobId));
   return (
     <button

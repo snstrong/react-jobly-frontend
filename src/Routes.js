@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, Redirect, useParams } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import CompanyDetail from "./CompanyDetail";
 import CompanyList from "./CompanyList";
@@ -37,6 +37,9 @@ const Routes = ({ login, register, updateUser }) => {
       <ProtectedRoute exact path="/profile">
         <ProfileForm updateUser={updateUser} />
       </ProtectedRoute>
+      <Route exact path="/logout">
+        <Redirect to="/" />
+      </Route>
     </Switch>
   );
 };

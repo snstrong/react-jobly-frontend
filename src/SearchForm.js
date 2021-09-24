@@ -19,18 +19,19 @@ function SearchForm({ search }) {
 
   return (
     <form className="SearchForm form-inline" onSubmit={handleSubmit}>
-      <label className="form-label visually-hidden" htmlFor="searchTerm">
-        Search
-      </label>
-      <input
-        className="form-control"
-        id="searchTerm"
-        name="searchTerm"
-        onChange={handleChange}
-        style={{ width: "18rem" }}
-        placeholder="Search"
-      />
-      <button className="btn btn-primary mb-3">Go</button>
+      <div className="form-group">
+        <input
+          className="form-control"
+          id="searchTerm"
+          name="searchTerm"
+          onChange={handleChange}
+          style={{ width: "18rem" }}
+          placeholder="Search"
+        />
+      </div>
+      <button type="submit" className="btn btn-primary mb-3">
+        Go
+      </button>
     </form>
   );
 }

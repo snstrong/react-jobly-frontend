@@ -11,9 +11,10 @@
 */
 
 import { useState } from "react";
-import JoblyApi from "./api";
+import { useHistory } from "react-router-dom";
 
 function RegisterForm({ register }) {
+  const history = useHistory();
   const INITIAL_STATE = {
     username: "",
     password: "",
@@ -31,12 +32,16 @@ function RegisterForm({ register }) {
     }));
   };
 
-  const handleSubmit = (evt) => {
+  async function handleSubmit(evt) {
     evt.preventDefault();
-    // let res = JoblyApi.register(formData); // TODO: register method in App component, to be passed down as prop
-    register(formData);
-    setFormData(INITIAL_STATE);
-  };
+    let res = await register(formData);
+    if (res.success === true) {
+      setFormData(INITIAL_STATE);
+      history.push(`/companies`);
+    } else {
+      console.error("Registration failed", res.errors);
+    }
+  }
 
   return (
     <div className="RegisterForm container">

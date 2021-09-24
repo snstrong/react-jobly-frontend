@@ -1,28 +1,31 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import "./Nav.css";
 import UserContext from "./UserContext";
+import "./Nav.css";
 
 function Nav({ logout }) {
   const { currentUser } = useContext(UserContext);
-  console.debug("Navigation", "currentUser=", currentUser);
+  // console.debug("Navigation", "currentUser=", currentUser);
   function loggedInNav() {
     return (
-      <ul>
-        <li>
-          <NavLink to="/">Home</NavLink>
+      <ul className="navbar-nav mr-auto">
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/companies">
+            Companies
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/companies">Companies</NavLink>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/jobs">
+            Jobs
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/jobs">Jobs</NavLink>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/profile">
+            Profile
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/profile">Profile</NavLink>
-        </li>
-        <li>
-          <NavLink to="/" onClick={logout}>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/logout" onClick={logout}>
             Log Out
           </NavLink>
         </li>
@@ -32,24 +35,40 @@ function Nav({ logout }) {
 
   function loggedOutNav() {
     return (
-      <ul>
-        <li>
-          <NavLink to="/">Home</NavLink>
+      <ul className="navbar-nav mr-auto">
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/signup">
+            Sign Up
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/signup">Sign Up</NavLink>
-        </li>
-        <li>
-          <NavLink to="/login">Log In</NavLink>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/login">
+            Log In
+          </NavLink>
         </li>
       </ul>
     );
   }
 
   return (
-    <nav className="Nav">
-      <h1 id="site-logo">Jobly</h1>
-      {currentUser ? loggedInNav() : loggedOutNav()}
+    <nav className="Nav navbar navbar-expand-lg navbar-light bg-light px-3">
+      <NavLink className="navbar-brand" to="/">
+        Jobly
+      </NavLink>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        {currentUser ? loggedInNav() : loggedOutNav()}
+      </div>
     </nav>
   );
 }

@@ -33,7 +33,7 @@ function App() {
 
   useEffect(
     function loadUserInfo() {
-      console.debug("App useEffect loadUserInfo", "token=", token);
+      // console.debug("App useEffect loadUserInfo", "token=", token);
 
       async function getCurrentUser() {
         if (token) {
@@ -78,14 +78,9 @@ function App() {
       console.error("login failed", errors);
       return { success: false, errors };
     }
-    // JoblyApi.login(data).then((token) => console.log(token));
-    // return;
   }
 
   async function register(signupData) {
-    // JoblyApi.register(data).then((token) => console.log(token));
-    // return;
-
     try {
       let token = await JoblyApi.register(signupData);
       setToken(token);

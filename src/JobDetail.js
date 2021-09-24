@@ -8,17 +8,21 @@ function JobDetail() {
   let [job, setJob] = useState(null);
 
   useEffect(() => {
+    let isMounted = true;
     async function fetchData() {
       let res = await JoblyApi.getJob(id);
-      setJob(res);
+      if (isMounted) setJob(res);
     }
     fetchData();
-  }, [setJob]);
+    return () => {
+      isMounted = false;
+    };
+  }, [id, job]);
 
   if (!job) return <p>Loading...</p>;
 
   return (
-    <div className="JobDetail">
+    <div className="JobDetail container">
       <h2>{job.title}</h2>
       <ApplyButton jobId={job.id} />
       <p>Salary: {job.salary}</p>

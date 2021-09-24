@@ -10,15 +10,15 @@ import UserContext from "./UserContext";
 function ProtectedRoute({ exact, path, children }) {
   const { currentUser } = useContext(UserContext);
 
-  console.debug(
-    "ProtectedRoute",
-    "exact=",
-    exact,
-    "path=",
-    path,
-    "currentUser=",
-    currentUser
-  );
+  // console.debug(
+  //   "ProtectedRoute",
+  //   "exact=",
+  //   exact,
+  //   "path=",
+  //   path,
+  //   "currentUser=",
+  //   currentUser
+  // );
 
   if (!currentUser) return <Redirect to="/login" />;
 
