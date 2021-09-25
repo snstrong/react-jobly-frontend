@@ -3,7 +3,7 @@ import ApplyButton from "./ApplyButton";
 
 function JobCard(job, key) {
   return (
-    <div className="JobCard card mb-3" id={job.job.id}>
+    <div className="JobCard card mb-3 bg-light" id={job.job.id}>
       <div className="card-body">
         <Link className="card-title" to={`/jobs/${job.job.id}`}>
           <h3>{job.job.title}</h3>

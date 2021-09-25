@@ -25,7 +25,7 @@ function CompanyDetail() {
   }
 
   return (
-    <div className="CompanyDetail">
+    <div className="CompanyDetail container">
       <h1>{company.name}</h1>
       <p>{company.description}</p>
       {company.numEmployees && <p>{company.numEmployees} employees</p>}

@@ -1,0 +1,15 @@
+#landing-page-title {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+#landing-page-subtitle {
+  font-family: "Ubuntu";
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+#landing-page-welcome {
+  text-align: center;
+}

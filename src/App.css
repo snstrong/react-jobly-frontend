@@ -6,3 +6,13 @@
 label {
   font-weight: 700;
 }
+
+h1 {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.3rem;
+}

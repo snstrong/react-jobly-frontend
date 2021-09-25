@@ -28,7 +28,7 @@ function JobList() {
 
   return (
     <div className="JobList container pt-3">
-      <h2>Jobs</h2>
+      <h1>Jobs</h1>
       <SearchForm search={search} />
       {jobCards}
     </div>

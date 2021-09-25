@@ -29,7 +29,7 @@ function CompanyList() {
 
   return (
     <div className="CompanyList container pt-3">
-      <h2>Companies</h2>
+      <h1>Companies</h1>
       <SearchForm search={search} />
       {companyCards}
     </div>

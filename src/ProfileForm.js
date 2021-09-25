@@ -33,7 +33,7 @@ function ProfileForm({ updateUser }) {
 
   return (
     <div className="ProfileForm container pt-5">
-      <h2 className="mx-auto text-center">Profile</h2>
+      <h1 className="mx-auto text-center">Profile</h1>
       <div className="card mx-auto" style={{ width: "30rem" }}>
         <div className="card-body">
           <form onSubmit={handleSubmit}>

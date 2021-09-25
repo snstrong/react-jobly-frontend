@@ -9,3 +9,9 @@
 .navbar-light:hover .navbar-nav:hover .nav-link:hover {
   color: #0056b3;
 }
+
+.navbar-brand {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+}

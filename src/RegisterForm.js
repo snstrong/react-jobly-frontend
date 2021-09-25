@@ -45,7 +45,7 @@ function RegisterForm({ register }) {
 
   return (
     <div className="RegisterForm container">
-      <h2>Sign Up</h2>
+      <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label className="form-label" htmlFor="username">
